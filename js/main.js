@@ -119,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
 
             try {
-                // Send data to backend API
-                const response = await fetch('/api/contact', {
+                // Send data to serverless function
+                const response = await fetch('/api/submit-contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -130,21 +130,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const result = await response.json();
 
-                if (result.success) {
+                if (response.ok && result.success) {
                     // Show success message
                     alert('✅ ' + result.message);
 
                     // Reset form
                     this.reset();
 
-                    console.log('Contact form submitted successfully. ID:', result.contactId);
+                    // Log if in development
+                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                        console.log('✅ Contact form submitted successfully');
+                        console.log('Email sent:', result.emailSent);
+                        console.log('Timestamp:', result.timestamp);
+                    }
                 } else {
                     // Show error message
-                    alert('❌ ' + (result.error || 'Failed to send message. Please try again.'));
+                    alert('❌ ' + (result.error || `Failed to send message (Status: ${response.status})`));
                 }
 
             } catch (error) {
-                console.error('Error submitting form:', error);
+                console.error('❌ Form submission error:', error);
                 alert('❌ Network error. Please check your connection and try again.');
             } finally {
                 // Re-enable submit button
