@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="hssGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#E8A0A0;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#F4A582;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Medical Cross -->
+    <!-- Vertical bar -->
+    <rect x="72" y="20" width="56" height="160" rx="28" fill="url(#hssGradient)"/>
+
+    <!-- Horizontal bar -->
+    <rect x="20" y="72" width="160" height="56" rx="28" fill="url(#hssGradient)"/>
+</svg>
