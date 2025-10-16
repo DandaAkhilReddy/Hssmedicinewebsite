@@ -1,58 +1,83 @@
-// Vercel Serverless Function for Contact Form
+// Netlify Serverless Function for Contact Form
 // This function handles contact form submissions and sends email notifications
 
-export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({
-      success: false,
-      error: 'Method not allowed. Please use POST.'
-    });
+exports.handler = async (event, context) => {
+  // Enable CORS
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json'
+  };
+
+  // Handle OPTIONS request for CORS preflight
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: ''
+    };
   }
 
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  // Only allow POST requests
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({
+        success: false,
+        error: 'Method not allowed. Please use POST.'
+      })
+    };
+  }
 
   try {
-    const { name, email, phone, organization, service, message } = req.body;
+    // Parse request body
+    const { name, email, phone, organization, service, message } = JSON.parse(event.body);
 
     // Validation
     if (!name || !email || !message) {
-      return res.status(400).json({
-        success: false,
-        error: 'Name, email, and message are required fields'
-      });
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+          success: false,
+          error: 'Name, email, and message are required fields'
+        })
+      };
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({
-        success: false,
-        error: 'Invalid email address'
-      });
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+          success: false,
+          error: 'Invalid email address'
+        })
+      };
     }
 
     // Phone validation (if provided)
     if (phone) {
       const phoneRegex = /^[\d\s\-\+\(\)]+$/;
       if (!phoneRegex.test(phone)) {
-        return res.status(400).json({
-          success: false,
-          error: 'Invalid phone number format'
-        });
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            success: false,
+            error: 'Invalid phone number format'
+          })
+        };
       }
     }
 
     // Get client info
-    const ip_address = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown';
-    const user_agent = req.headers['user-agent'] || 'unknown';
+    const ip_address = event.headers['x-forwarded-for'] || event.headers['x-real-ip'] || 'unknown';
+    const user_agent = event.headers['user-agent'] || 'unknown';
     const timestamp = new Date().toISOString();
 
     // Prepare email content
@@ -222,20 +247,28 @@ IP: ${ip_address}
     `);
 
     // Return success response
-    return res.status(200).json({
-      success: true,
-      message: 'Thank you for contacting us! We will get back to you soon.',
-      emailSent,
-      timestamp,
-      ...(process.env.NODE_ENV === 'development' && { debug: { emailError } })
-    });
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({
+        success: true,
+        message: 'Thank you for contacting us! We will get back to you soon.',
+        emailSent,
+        timestamp,
+        ...(process.env.NODE_ENV === 'development' && { debug: { emailError } })
+      })
+    };
 
   } catch (error) {
     console.error('❌ Error processing contact form:', error);
-    return res.status(500).json({
-      success: false,
-      error: 'An error occurred while processing your request. Please try again later.',
-      ...(process.env.NODE_ENV === 'development' && { debug: error.message })
-    });
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({
+        success: false,
+        error: 'An error occurred while processing your request. Please try again later.',
+        ...(process.env.NODE_ENV === 'development' && { debug: error.message })
+      })
+    };
   }
-}
+};
