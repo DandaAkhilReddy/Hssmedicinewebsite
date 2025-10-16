@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
       timestamp: contactData.submitted_at
     });
 
-    // TODO: In production, send email notification to asimin@hssmedicine.com
+    // TODO: In production, send email notification to asimon@hssmedicine.com
     // using a service like SendGrid, Resend, or Nodemailer
 
     // Send success response
