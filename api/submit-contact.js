@@ -83,7 +83,7 @@ exports.handler = async (event, context) => {
     // Prepare email content
     const emailContent = {
       from: process.env.EMAIL_FROM || 'noreply@hsshospitalspecialists.com',
-      to: process.env.EMAIL_TO || 'contact@hsshospitalspecialists.com',
+      to: process.env.EMAIL_TO || 'asimon@hssmedicine.com',
       subject: `New Contact Form Submission - ${name}`,
       html: `
         <!DOCTYPE html>
