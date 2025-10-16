@@ -2422,3 +2422,178 @@ section {
         font-size: 2rem;
     }
 }
+/* Enhanced Contact Cards */
+.contact-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #9B59B6 0%, #E8A0A0 50%, #F4A582 100%);
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08), 0 16px 32px rgba(155, 89, 182, 0.15);
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+.contact-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.contact-icon {
+    color: #9B59B6;
+    flex-shrink: 0;
+}
+
+.contact-card-header h4 {
+    color: #004080;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.contact-card-body {
+    padding-top: 0.5rem;
+}
+
+.contact-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #004080;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.03em;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1rem;
+    background: #ffffff;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 10px;
+    color: #E8A0A0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.contact-link svg {
+    color: #9B59B6;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.contact-link:hover {
+    background: linear-gradient(135deg, #9B59B6 0%, #E8A0A0 100%);
+    color: #ffffff;
+    border-color: #9B59B6;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.25);
+}
+
+.contact-link:hover svg {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Leadership Card Specific Styles */
+.leadership-card .contact-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.leader-item {
+    padding: 1.25rem;
+    background: #ffffff;
+    border: 1.5px solid #f0f0f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.leader-item:hover {
+    border-color: #E8A0A0;
+    box-shadow: 0 4px 12px rgba(232, 160, 160, 0.15);
+    transform: translateX(6px);
+}
+
+.leader-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #004080;
+    margin: 0 0 0.25rem 0;
+}
+
+.leader-title {
+    font-size: 0.875rem;
+    color: #9B59B6;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.875rem 0;
+}
+
+.leader-item .contact-link {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Design for Contact Cards */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-name {
+        font-size: 1.25rem;
+    }
+
+    .contact-link {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    .leader-item {
+        padding: 1rem;
+    }
+}
+
+/* Remove old contact styles that conflict */
+.contact-item {
+    display: none;
+}
+
+.leadership-contacts {
+    display: none;
+}
