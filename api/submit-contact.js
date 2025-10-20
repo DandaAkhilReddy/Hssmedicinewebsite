@@ -1,5 +1,7 @@
 // Netlify Serverless Function for Contact Form
-// This function handles contact form submissions and sends email notifications
+// This function handles contact form submissions, stores them, and sends email notifications
+
+const { insertContact } = require('./database');
 
 exports.handler = async (event, context) => {
   // Enable CORS
@@ -80,11 +82,45 @@ exports.handler = async (event, context) => {
     const user_agent = event.headers['user-agent'] || 'unknown';
     const timestamp = new Date().toISOString();
 
+    const cleanedName = name.trim();
+    const cleanedEmail = email.trim().toLowerCase();
+    const cleanedPhone = phone ? phone.trim() : null;
+    const cleanedOrganization = organization ? organization.trim() : null;
+    const normalizedService = service || null;
+    const cleanedMessage = message.trim();
+
+    // Build contact payload for persistence
+    let contactId = null;
+    try {
+      contactId = insertContact({
+        name: cleanedName,
+        email: cleanedEmail,
+        phone: cleanedPhone,
+        organization: cleanedOrganization,
+        service: normalizedService,
+        message: cleanedMessage,
+        ip_address,
+        user_agent
+      });
+    } catch (dbError) {
+      console.error('❌ Failed to save contact submission:', dbError);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          success: false,
+          error: 'We were unable to save your submission. Please try again shortly.'
+        })
+      };
+    }
+
     // Prepare email content
+    const emailRecipient = process.env.EMAIL_TO || 'info@hssmedicine.com';
+    const emailSender = process.env.EMAIL_FROM || 'info@hssmedicine.com';
     const emailContent = {
-      from: process.env.EMAIL_FROM || 'noreply@hsshospitalspecialists.com',
-      to: process.env.EMAIL_TO || 'asimon@hssmedicine.com',
-      subject: `New Contact Form Submission - ${name}`,
+      from: emailSender,
+      to: emailRecipient,
+      subject: `New Contact Form Submission - ${cleanedName}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -109,42 +145,43 @@ exports.handler = async (event, context) => {
             <div class="content">
               <div class="field">
                 <div class="label">Name:</div>
-                <div class="value">${name}</div>
+                <div class="value">${cleanedName}</div>
               </div>
 
               <div class="field">
                 <div class="label">Email:</div>
-                <div class="value"><a href="mailto:${email}">${email}</a></div>
+                <div class="value"><a href="mailto:${cleanedEmail}">${cleanedEmail}</a></div>
               </div>
 
-              ${phone ? `
+              ${cleanedPhone ? `
               <div class="field">
                 <div class="label">Phone:</div>
-                <div class="value"><a href="tel:${phone}">${phone}</a></div>
+                <div class="value"><a href="tel:${cleanedPhone}">${cleanedPhone}</a></div>
               </div>
               ` : ''}
 
-              ${organization ? `
+              ${cleanedOrganization ? `
               <div class="field">
                 <div class="label">Organization:</div>
-                <div class="value">${organization}</div>
+                <div class="value">${cleanedOrganization}</div>
               </div>
               ` : ''}
 
-              ${service ? `
+              ${normalizedService ? `
               <div class="field">
                 <div class="label">Service Interested In:</div>
-                <div class="value">${service}</div>
+                <div class="value">${normalizedService}</div>
               </div>
               ` : ''}
 
               <div class="field">
                 <div class="label">Message:</div>
-                <div class="value">${message.replace(/\n/g, '<br>')}</div>
+                <div class="value">${cleanedMessage.replace(/\n/g, '<br>')}</div>
               </div>
 
               <div class="footer">
                 <p><strong>Submission Details:</strong></p>
+                <p>Contact ID: ${contactId}</p>
                 <p>Time: ${timestamp}</p>
                 <p>IP Address: ${ip_address}</p>
                 <p>User Agent: ${user_agent}</p>
@@ -157,16 +194,17 @@ exports.handler = async (event, context) => {
       text: `
 New Contact Form Submission - HSS Hospital Specialists
 
-Name: ${name}
-Email: ${email}
-${phone ? `Phone: ${phone}` : ''}
-${organization ? `Organization: ${organization}` : ''}
-${service ? `Service: ${service}` : ''}
+Name: ${cleanedName}
+Email: ${cleanedEmail}
+${cleanedPhone ? `Phone: ${cleanedPhone}` : ''}
+${cleanedOrganization ? `Organization: ${cleanedOrganization}` : ''}
+${normalizedService ? `Service: ${normalizedService}` : ''}
 
 Message:
-${message}
+${cleanedMessage}
 
 ---
+Contact ID: ${contactId}
 Submitted: ${timestamp}
 IP: ${ip_address}
       `.trim()
@@ -237,11 +275,12 @@ IP: ${ip_address}
     // Log submission details
     console.log(`
 📬 Contact Form Submission:
-   Name: ${name}
-   Email: ${email}
-   Phone: ${phone || 'N/A'}
-   Organization: ${organization || 'N/A'}
-   Service: ${service || 'N/A'}
+   Contact ID: ${contactId}
+   Name: ${cleanedName}
+   Email: ${cleanedEmail}
+   Phone: ${cleanedPhone || 'N/A'}
+   Organization: ${cleanedOrganization || 'N/A'}
+   Service: ${normalizedService || 'N/A'}
    Email Sent: ${emailSent ? '✅ Yes' : '❌ No'}
    ${emailError ? `Error: ${emailError}` : ''}
     `);
@@ -255,6 +294,7 @@ IP: ${ip_address}
         message: 'Thank you for contacting us! We will get back to you soon.',
         emailSent,
         timestamp,
+        contactId,
         ...(process.env.NODE_ENV === 'development' && { debug: { emailError } })
       })
     };

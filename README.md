@@ -99,7 +99,7 @@ npx http-server
 ### Update Contact Information
 
 Edit `index.html` and search for:
-- Phone numbers: `305-903-2279`, `361-834-7110`, `786-457-4900`
+- Phone contact is no longer public; all inquiries route through `info@hssmedicine.com`
 - Email addresses (when added)
 - Addresses (when specified)
 

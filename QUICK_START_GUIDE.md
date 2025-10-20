@@ -35,7 +35,7 @@ C:/Users/akhil/hss-website/
 ### ✅ All Sections from PDF (Exactly Matched)
 1. **Hero Section** - Modern hospital intro with stats
 2. **About HSS** - Foundation, Commitment, Difference
-3. **Leadership Team** - Dr. Armas, Dr. Reddy, Dr. Valdes
+3. **Leadership Team** - Physician-led executive group
 4. **Group Overview** - History and services
 5. **Services** - Hospitalist, Emergency, Radiology
 6. **Key Differentiators** - "Patient First" promise
@@ -90,7 +90,6 @@ Place professional medical photos in `images/` folder and update HTML:
 
 ### 2. Update Contact Info
 Edit `index.html` - Search for:
-- Phone: `305-903-2279`
 - Email: `info@hospitalspecialists.com` (when added)
 
 ### 3. Connect Contact Form to Email

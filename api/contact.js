@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
       timestamp: contactData.submitted_at
     });
 
-    // TODO: In production, send email notification to asimon@hssmedicine.com
+    // TODO: In production, send email notification to the configured team inbox (info@hssmedicine.com by default)
     // using a service like SendGrid, Resend, or Nodemailer
 
     // Send success response

@@ -2477,6 +2477,12 @@ section {
     padding-top: 0.5rem;
 }
 
+.contact-description {
+    margin: 0 0 1.25rem 0;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
 .contact-name {
     font-size: 1.5rem;
     font-weight: 700;
@@ -2560,6 +2566,12 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0 0 0.875rem 0;
+}
+
+.leader-description {
+    margin: 0;
+    color: #4a4a4a;
+    line-height: 1.6;
 }
 
 .leader-item .contact-link {
