@@ -2,9 +2,11 @@
 
 A complete, production-ready website for HSS (Hospital Specialists) with integrated contact form, backend API, and database storage. Built with professional medical aesthetics matching company branding.
 
-**🌐 Live Website**: [https://hssmedicine.com](https://hssmedicine.com) *(Replace with your actual deployed URL)*
+**🌐 Live Website**: [https://hss-website-one.vercel.app](https://hss-website-one.vercel.app) *(Current Vercel production deployment)*
 
 **📦 Repository**: [https://github.com/DandaAkhilReddy/Hssmedicinewebsite](https://github.com/DandaAkhilReddy/Hssmedicinewebsite)
+
+**🌍 Custom Domains**: Point GoDaddy DNS `A (@)` to `76.76.21.21` and `CNAME (www)` to `cname.vercel-dns.com`, then add the domain in Vercel → Project → Domains.
 
 ---
 
@@ -1355,9 +1357,8 @@ npm install
 
 ### HSS Business Inquiries
 
-- **Website**: [hssmedicine.com](https://hssmedicine.com) *(replace with actual URL)*
+- **Website**: [https://hss-website-one.vercel.app](https://hss-website-one.vercel.app) *(or your custom domain once connected)*
 - **General Email**: info@hssmedicine.com
-- **Operations Director**: asimon@hssmedicine.com (Andrea Simon)
 
 ---
 
@@ -1427,7 +1428,8 @@ pm2 monit             # Monitor resources
 
 **Start Server**: `npm start`
 **Stop Server**: `Ctrl+C`
-**Website URL**: http://localhost:3002
+**Local URL**: http://localhost:3002
+**Production URL**: https://hss-website-one.vercel.app
 **Health Check**: http://localhost:3002/api/health
 **View Contacts**: http://localhost:3002/api/contacts
 **Test Form**: http://localhost:3002/test-form.html
