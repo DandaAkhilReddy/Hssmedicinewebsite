@@ -18,21 +18,7 @@
             <div class="nav-wrapper">
                 <!-- Logo -->
                 <a href="#home" class="logo">
-                    <svg class="logo-svg" width="50" height="50" viewBox="0 0 50 50">
-                        <defs>
-                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#E8A0A0;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#F4A582;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="18" y="5" width="14" height="40" rx="7" fill="url(#logoGradient)"/>
-                        <rect x="5" y="18" width="40" height="14" rx="7" fill="url(#logoGradient)"/>
-                    </svg>
-                    <div class="logo-text">
-                        <span class="logo-title">HSS</span>
-                        <span class="logo-subtitle">HOSPITAL SPECIALISTS</span>
-                    </div>
+                    <img src="images/hss-logo.jpg" alt="HSS Hospital Specialists logo" class="logo-img">
                 </a>
 
                 <!-- Desktop Menu -->
@@ -68,7 +54,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                    <a href="tel:8774546896" class="btn btn-secondary" aria-label="Call HSS Hospital Specialists at 877-454-6896">Call 877-454-6896</a>
                 </div>
 
                 <!-- Hero Stats -->
@@ -105,17 +91,17 @@
             <div class="about-grid">
                 <div class="about-card">
                     <h3 class="about-card-title">Who We Are</h3>
-                    <p>HSS Hospital Specialists is a physician-led healthcare organization dedicated to providing exceptional hospital care. Our team of over 380 experienced physicians serves patients across the country with compassion, expertise, and a patient-first approach.</p>
+                    <p>Physician-led hospitalist, emergency, and radiology teams trusted by hospitals nationwide.</p>
                 </div>
 
                 <div class="about-card">
-                    <h3 class="about-card-title">Our Mission</h3>
-                    <p>We are committed to delivering the highest quality care to every patient we serve. Our physicians work around the clock to ensure you receive personalized, compassionate treatment when you need it most.</p>
+                    <h3 class="about-card-title">Our Promise</h3>
+                    <p>24/7 bedside coverage with compassionate specialists who treat every patient like family.</p>
                 </div>
 
                 <div class="about-card">
-                    <h3 class="about-card-title">Why Choose HSS</h3>
-                    <p>With 20+ years of experience and a 98% patient satisfaction rate, we combine medical excellence with genuine care. Our board-certified physicians are always available to provide expert care in emergency, hospital, and radiology services.</p>
+                    <h3 class="about-card-title">Why Hospitals Choose HSS</h3>
+                    <p>20+ years of outcomes-driven care, 380+ board-certified physicians, and a 98% patient satisfaction rate.</p>
                 </div>
             </div>
         </div>
@@ -124,51 +110,111 @@
     <!-- Services Section -->
     <section id="services" class="services-section">
         <div class="container">
-            <div class="divider-title">
-                <h2>Hospitalist and Emergency Medicine</h2>
+            <div class="section-header">
+                <span class="section-label">WHAT WE DO</span>
+                <h2 class="section-title">Hospitalist and Emergency Medicine</h2>
+                <p class="section-subtitle">Integrated coverage, consistent bedside experience, measurable results.</p>
             </div>
 
-            <div class="services-grid">
-                <!-- Hospitalist Services -->
-                <div class="service-card">
-                    <div class="service-content">
-                        <h3>Hospitalist & Critical Care</h3>
-                        <p>Comprehensive inpatient care with board-certified hospitalists providing 24/7 coverage for exceptional patient outcomes.</p>
-                        <ul class="service-features">
-                            <li>24/7 Coverage</li>
-                            <li>Board Certified Physicians</li>
-                            <li>Critical Care Expertise</li>
-                            <li>Seamless Integration</li>
-                        </ul>
-                    </div>
+            <div class="services-showcase">
+                <div class="services-highlight">
+                    <p>
+                        HSS aligns physician leadership, clinical protocols, and real-time analytics so partner hospitals see faster throughput, stronger quality metrics, and happier patients.
+                    </p>
                 </div>
 
-                <!-- Emergency Medicine -->
-                <div class="service-card">
-                    <div class="service-content">
-                        <h3>Emergency Medicine</h3>
-                        <p>Expert emergency care with rapid response teams and cutting-edge protocols for optimal patient safety.</p>
-                        <ul class="service-features">
-                            <li>Rapid Response Teams</li>
-                            <li>Advanced Protocols</li>
-                            <li>Quality Metrics Focus</li>
-                            <li>Patient-Centered Care</li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="services-grid">
+                    <!-- Hospitalist Services -->
+                    <article class="service-card">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                    <rect width="48" height="48" rx="14" fill="url(#serviceGradient1)"/>
+                                    <path d="M24 14V34" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M14 24H34" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="serviceGradient1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" stop-color="#9B59B6"/>
+                                            <stop offset="100%" stop-color="#E8A0A0"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h3>Hospitalist & Critical Care</h3>
+                            <p>Dedicated inpatient teams coordinating admissions, rounding, critical care, and safe discharges without gaps.</p>
+                            <div class="service-chips">
+                                <span class="service-chip">24/7 Coverage</span>
+                                <span class="service-chip">Critical Care</span>
+                                <span class="service-chip">Co-managed ICU</span>
+                            </div>
+                            <div class="service-metric">
+                                <strong>2.1M+</strong>
+                                <span>patient days managed</span>
+                            </div>
+                        </div>
+                    </article>
 
-                <!-- Radiology -->
-                <div class="service-card">
-                    <div class="service-content">
-                        <h3>Radiology Services</h3>
-                        <p>Comprehensive imaging with 50+ radiologists providing on-site and tele-radiology services with exceptional turnaround times.</p>
-                        <ul class="service-features">
-                            <li>Stroke: &lt;20 minutes</li>
-                            <li>STAT: &lt;45 minutes</li>
-                            <li>24/7 Coverage</li>
-                            <li>Board Certified Team</li>
-                        </ul>
-                    </div>
+                    <!-- Emergency Medicine -->
+                    <article class="service-card">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                    <rect width="48" height="48" rx="14" fill="url(#serviceGradient2)"/>
+                                    <path d="M16 20H32L30 34H18L16 20Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+                                    <path d="M22 14H26" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                                    <circle cx="24" cy="40" r="2" fill="white"/>
+                                    <defs>
+                                        <linearGradient id="serviceGradient2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" stop-color="#E8A0A0"/>
+                                            <stop offset="100%" stop-color="#F4A582"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h3>Emergency Medicine</h3>
+                            <p>Rapid-response physician teams, triage optimization, and stroke protocols that keep door-to-needle times low.</p>
+                            <div class="service-chips">
+                                <span class="service-chip">Rapid Response</span>
+                                <span class="service-chip">Trauma Ready</span>
+                                <span class="service-chip">ED Throughput</span>
+                            </div>
+                            <div class="service-metric">
+                                <strong>&lt;20 min</strong>
+                                <span>stroke activation response</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Radiology -->
+                    <article class="service-card">
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                    <rect width="48" height="48" rx="14" fill="url(#serviceGradient3)"/>
+                                    <circle cx="24" cy="24" r="10" stroke="white" stroke-width="3"/>
+                                    <circle cx="24" cy="24" r="4" fill="white"/>
+                                    <path d="M32 16L38 12" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="serviceGradient3" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" stop-color="#003366"/>
+                                            <stop offset="100%" stop-color="#9B59B6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h3>Radiology Services</h3>
+                            <p>On-site and tele-radiology coverage with subspecialty reads, QA review, and fast turnaround for every modality.</p>
+                            <div class="service-chips">
+                                <span class="service-chip">50+ Radiologists</span>
+                                <span class="service-chip">Tele-Rad</span>
+                                <span class="service-chip">QA Reviews</span>
+                            </div>
+                            <div class="service-metric">
+                                <strong>&lt;45 min</strong>
+                                <span>STAT report turnaround</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -301,79 +347,115 @@
                 <p class="section-subtitle">Serving hospitals nationwide with excellence</p>
             </div>
 
-            <div class="locations-grid">
-                <!-- Florida -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3>Florida</h3>
-                        <span class="location-badge">5 Facilities</span>
+            <div class="locations-layout">
+                <div class="locations-map-card">
+                    <div class="locations-map-frame">
+                        <iframe
+                            id="locationsMap"
+                            title="HSS hospital locations map"
+                            src="https://maps.google.com/maps?q=Palmetto%20General%20Hospital%2C%20Hialeah%20FL&t=&z=6&ie=UTF8&iwloc=&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
-                    <ul class="location-list">
-                        <li>Palmetto General Hospital</li>
-                        <li>DeSoto Memorial Hospital</li>
-                        <li>Hendry Regional Medical Center</li>
-                        <li>Larkin Hospital - Palm Springs Campus</li>
-                        <li>HCA Lehigh Regional Medical Center</li>
-                    </ul>
+                    <p class="map-caption">Select a facility to explore it on the map.</p>
+                    <div class="location-detail-card" id="locationDetail">
+                        <div class="location-detail-header">
+                            <h3 id="locationDetailName" class="location-detail-title">Palmetto General Hospital</h3>
+                            <span id="locationDetailCity" class="location-detail-meta">Hialeah, FL</span>
+                        </div>
+                        <p id="locationDetailSummary" class="location-detail-summary">Miami-Dade flagship site with integrated emergency medicine, hospitalist, and radiology teams delivering 24/7 coverage.</p>
+                        <ul class="location-detail-services" id="locationDetailServices">
+                            <li>24/7 emergency department physician staffing</li>
+                            <li>Hospitalist leadership with daily interdisciplinary rounds</li>
+                            <li>Real-time radiology reads and critical care consults</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- New Jersey -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3>New Jersey</h3>
-                        <span class="location-badge">3 Facilities</span>
-                    </div>
-                    <ul class="location-list">
-                        <li>Saint Michael's Medical Center</li>
-                        <li>Saint Clare's Hospital (2 campuses)</li>
-                        <li>Saint Mary's Hospital</li>
-                    </ul>
-                </div>
-
-                <!-- Texas -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3>Texas</h3>
-                        <span class="location-badge">2 Facilities</span>
-                    </div>
-                    <ul class="location-list">
-                        <li>HCA Doctors Regional</li>
-                        <li>HCA Bay Area Medical Center/Heart Hospital</li>
-                    </ul>
-                </div>
-
-                <!-- Coming Soon -->
-                <div class="location-card upcoming">
-                    <div class="location-header">
-                        <h3>Coming Soon</h3>
-                        <span class="location-badge upcoming-badge">Expanding</span>
-                    </div>
-                    <div class="coming-soon-list">
-                        <h4>Missouri</h4>
-                        <ul>
-                            <li>St. Joseph's Medical Center</li>
-                            <li>St. Mary Medical center</li>
+                <div class="locations-panels">
+                    <!-- Florida -->
+                    <article class="location-card">
+                        <div class="location-header">
+                            <h3>Florida</h3>
+                            <span class="location-badge">5 Facilities</span>
+                        </div>
+                        <p class="location-summary">Emergency, hospitalist, and radiology partners across South Florida communities.</p>
+                        <ul class="location-list">
+                            <li><button type="button" class="location-link active" data-name="Palmetto General Hospital" data-city="Hialeah, FL" data-summary="Miami-Dade flagship site with integrated emergency medicine, hospitalist, and radiology teams delivering 24/7 coverage." data-services="24/7 emergency department physician staffing;Hospitalist leadership with daily interdisciplinary rounds;Real-time radiology reads and critical care consults" data-lat="25.8845" data-lng="-80.3094">Palmetto General Hospital</button></li>
+                            <li><button type="button" class="location-link" data-name="DeSoto Memorial Hospital" data-city="Arcadia, FL" data-summary="Community hospital partnership focused on improving admission handoffs and physician communication for rural patients." data-services="ED throughput optimization and triage redesign;Hospitalist program leadership and staffing;Tele-radiology QA review coverage" data-lat="27.2186" data-lng="-81.8609">DeSoto Memorial Hospital</button></li>
+                            <li><button type="button" class="location-link" data-name="Hendry Regional Medical Center" data-city="Clewiston, FL" data-summary="Critical access facility supported with hybrid onsite and telehealth rounding to maintain seamless coverage." data-services="Hybrid onsite & tele-hospitalist rounding;24/7 emergency medicine physician coverage;After-hours specialty consult coordination" data-lat="26.7532" data-lng="-80.9317">Hendry Regional Medical Center</button></li>
+                            <li><button type="button" class="location-link" data-name="Larkin Hospital - Palm Springs Campus" data-city="Hialeah, FL" data-summary="Urban hospital partner expanding observation unit and throughput programs with bedside leadership." data-services="Observation unit management and protocols;Hospitalist & emergency medicine integration;Quality dashboards with daily huddles" data-lat="25.8668" data-lng="-80.2987">Larkin Hospital - Palm Springs Campus</button></li>
+                            <li><button type="button" class="location-link" data-name="HCA Lehigh Regional Medical Center" data-city="Lehigh Acres, FL" data-summary="Southwest Florida facility with joint emergency medicine and inpatient coverage to reduce length of stay." data-services="Emergency department physician staffing;Inpatient hospitalist coverage;Case management collaboration to lower LOS" data-lat="26.6149" data-lng="-81.6387">HCA Lehigh Regional Medical Center</button></li>
                         </ul>
+                    </article>
 
-                        <h4>Alabama</h4>
-                        <ul>
-                            <li>Riverview Regional Medical Center</li>
+                    <!-- New Jersey -->
+                    <article class="location-card">
+                        <div class="location-header">
+                            <h3>New Jersey</h3>
+                            <span class="location-badge">3 Facilities</span>
+                        </div>
+                        <p class="location-summary">Northern New Jersey coverage with round-the-clock hospitalist leadership.</p>
+                        <ul class="location-list">
+                            <li><button type="button" class="location-link" data-name="Saint Michael's Medical Center" data-city="Newark, NJ" data-summary="Regional teaching hospital with intensivist, hospitalist, and ED physicians aligned on throughput goals." data-services="Level II trauma ED physician team;Academic hospitalist rounding and nocturnist support;Critical care coverage with tele-ICU consults" data-lat="40.7418" data-lng="-74.1712">Saint Michael's Medical Center</button></li>
+                            <li><button type="button" class="location-link" data-name="Saint Clare's Hospital (2 campuses)" data-city="Denville, NJ" data-summary="Two-campus system partnering with HSS for consistent admissions coverage and quality reporting." data-services="Dual-campus hospitalist program management;Emergency medicine staffing and physician recruiting;Sepsis and readmission quality dashboards" data-lat="40.8975" data-lng="-74.4870">Saint Clare's Hospital (2 campuses)</button></li>
+                            <li><button type="button" class="location-link" data-name="Saint Mary's Hospital" data-city="Passaic, NJ" data-summary="Safety-net hospital leveraging HSS leadership for improved communication and specialist coordination." data-services="24/7 emergency medicine coverage;Hospitalist-led interdisciplinary rounds;Specialist alignment and tele-radiology collaboration" data-lat="40.8614" data-lng="-74.1287">Saint Mary's Hospital</button></li>
                         </ul>
+                    </article>
 
-                        <h4>Illinois</h4>
-                        <ul>
-                            <li>Saint Joseph's Hospital</li>
-                            <li>Mercy Medical Center</li>
+                    <!-- Texas -->
+                    <article class="location-card">
+                        <div class="location-header">
+                            <h3>Texas</h3>
+                            <span class="location-badge">2 Facilities</span>
+                        </div>
+                        <p class="location-summary">Serving Gulf Coast hospitals with ED throughput and inpatient performance programs.</p>
+                        <ul class="location-list">
+                            <li><button type="button" class="location-link" data-name="HCA Doctors Regional" data-city="Corpus Christi, TX" data-summary="Coastal tertiary facility partnering with HSS to expand advanced cardiac hospitalist and ED services." data-services="Cardiac & trauma emergency coverage;Hospitalist team with subspecialty backup;Advanced analytics with daily metrics review" data-lat="27.7324" data-lng="-97.3853">HCA Doctors Regional</button></li>
+                            <li><button type="button" class="location-link" data-name="HCA Bay Area Medical Center / Heart Hospital" data-city="Corpus Christi, TX" data-summary="Heart Hospital campus with integrated cardiology and hospitalist teams driving rapid response performance." data-services="Heart Hospital ED and chest pain center coverage;Hospitalist and cardiology co-management;Rapid response and code leadership" data-lat="27.7209" data-lng="-97.3686">HCA Bay Area Medical Center / Heart Hospital</button></li>
                         </ul>
+                    </article>
 
-                        <h4>Texas</h4>
-                        <ul>
-                            <li>Harlingen Medical Center (Started)</li>
-                            <li>Mission Regional Medical Center</li>
-                            <li>Huntsville Memorial Hospital</li>
-                            <li>Cristus Health San Antonio</li>
-                        </ul>
-                    </div>
+                    <!-- Coming Soon -->
+                    <article class="location-card upcoming">
+                        <div class="location-header">
+                            <h3>Coming Soon</h3>
+                            <span class="location-badge upcoming-badge">Expanding</span>
+                        </div>
+                        <p class="location-summary">New partnerships launching in 2025 with the same high-touch physician leadership.</p>
+                        <div class="coming-soon-grid">
+                            <div>
+                                <h4>Missouri</h4>
+                                <ul class="coming-soon-list">
+                                    <li>St. Joseph's Medical Center</li>
+                                    <li>St. Mary Medical Center</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Alabama</h4>
+                                <ul class="coming-soon-list">
+                                    <li>Riverview Regional Medical Center</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Illinois</h4>
+                                <ul class="coming-soon-list">
+                                    <li>Saint Joseph's Hospital</li>
+                                    <li>Mercy Medical Center</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Texas</h4>
+                                <ul class="coming-soon-list">
+                                    <li>Harlingen Medical Center (Started)</li>
+                                    <li>Mission Regional Medical Center</li>
+                                    <li>Huntsville Memorial Hospital</li>
+                                    <li>Christus Health San Antonio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -758,7 +840,20 @@
                 <div class="contact-info">
                     <h3>Contact Information</h3>
 
-                        <div class="contact-card operations-card">
+                    <div class="contact-card phone-card">
+                        <div class="contact-card-header">
+                            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 4h3l1.2 4.5-2.2 1c1.5 3 3.8 5.4 6.8 6.8l1-2.2L18.5 15V19c0 1.1-.9 2-2 2C9.6 21 3 14.4 3 6c0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <h4>Call Us Directly</h4>
+                        </div>
+                        <div class="contact-card-body">
+                            <a class="contact-phone" href="tel:8774546896">877-454-6896</a>
+                            <p class="contact-description">Connect with our team anytime for urgent staffing or support needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card operations-card">
                         <div class="contact-card-header">
                             <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
@@ -838,21 +933,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <svg class="logo-svg" width="40" height="40" viewBox="0 0 50 50">
-                            <defs>
-                                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
-                                    <stop offset="50%" style="stop-color:#E8A0A0;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#F4A582;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            <rect x="18" y="5" width="14" height="40" rx="7" fill="url(#footerGradient)"/>
-                            <rect x="5" y="18" width="40" height="14" rx="7" fill="url(#footerGradient)"/>
-                        </svg>
-                        <div>
-                            <div class="footer-logo-text">HSS</div>
-                            <div class="footer-logo-subtitle">HOSPITAL SPECIALISTS</div>
-                        </div>
+                        <img src="images/hss-logo.jpg" alt="HSS Hospital Specialists logo" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
                         Excellence in hospitalist, emergency medicine, critical care, and radiology services. Founded by physicians, for physicians.
@@ -884,6 +965,7 @@
                     <h4>Contact</h4>
                     <ul class="footer-contact">
                         <li>Nationwide Service</li>
+                        <li><a class="footer-phone" href="tel:8774546896">877-454-6896</a></li>
                         <li>Questions? <a href="mailto:info@hssmedicine.com">info@hssmedicine.com</a></li>
                     </ul>
                 </div>

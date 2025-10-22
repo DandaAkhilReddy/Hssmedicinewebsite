@@ -88,6 +88,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', activateNavLink);
 
+    // ========== LOCATIONS MAP INTERACTIVITY ==========
+    const locationMapFrame = document.getElementById('locationsMap');
+    const locationLinks = document.querySelectorAll('.location-link');
+    const detailCard = document.getElementById('locationDetail');
+    const detailName = document.getElementById('locationDetailName');
+    const detailCity = document.getElementById('locationDetailCity');
+    const detailSummary = document.getElementById('locationDetailSummary');
+    const detailServices = document.getElementById('locationDetailServices');
+
+    const updateLocationDetail = (link) => {
+        if (!detailCard) return;
+        const name = link.dataset.name || link.textContent.trim();
+        const city = link.dataset.city || '';
+        const summary = link.dataset.summary || '';
+        const services = link.dataset.services || '';
+
+        if (detailName) detailName.textContent = name;
+        if (detailCity) detailCity.textContent = city;
+        if (detailSummary) detailSummary.textContent = summary;
+
+        if (detailServices) {
+            detailServices.innerHTML = '';
+            services.split(';').map(item => item.trim()).filter(Boolean).forEach(service => {
+                const li = document.createElement('li');
+                li.textContent = service;
+                detailServices.appendChild(li);
+            });
+        }
+
+        detailCard.classList.add('visible');
+    };
+
+    if (locationMapFrame && locationLinks.length) {
+        const buildMapSrc = (link) => {
+            const lat = link.dataset.lat;
+            const lng = link.dataset.lng;
+            const fallbackQuery = link.dataset.map || link.dataset.name || link.textContent.trim();
+
+            if (lat && lng) {
+                return `https://maps.google.com/maps?q=${lat},${lng}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+            }
+
+            return `https://maps.google.com/maps?q=${encodeURIComponent(fallbackQuery)}&t=&z=12&ie=UTF8&iwloc=&output=embed`;
+        };
+
+        locationLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                locationLinks.forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+                locationMapFrame.src = buildMapSrc(link);
+                updateLocationDetail(link);
+            });
+        });
+
+        const activeLink = document.querySelector('.location-link.active') || locationLinks[0];
+        if (activeLink) {
+            locationMapFrame.src = buildMapSrc(activeLink);
+            updateLocationDetail(activeLink);
+        }
+    }
+
     // ========== CONTACT FORM SUBMISSION ==========
     const contactForm = document.getElementById('contactForm');
 
