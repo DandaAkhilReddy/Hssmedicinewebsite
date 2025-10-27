@@ -634,6 +634,21 @@ section {
     overflow: hidden;
 }
 
+.about-card-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
+}
+
+.about-card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
 @media (min-width: 768px) {
     .about-card {
         padding: 2.5rem;
@@ -1486,39 +1501,27 @@ section {
 
 .timeline-wrapper {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     position: relative;
     z-index: 1;
+    align-items: stretch;
+    justify-items: stretch;
     max-width: 100%;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 992px) {
     .timeline-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .timeline-connector:nth-of-type(6),
-    .timeline-connector:nth-of-type(10) {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .timeline-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .timeline-connector {
-        display: none !important;
+        gap: 2.5rem;
     }
 }
 
 .timeline-step {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.25rem;
     transition: all var(--transition-bounce);
 }
 
@@ -1537,11 +1540,12 @@ section {
     justify-content: center;
     font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.25rem 0;
     box-shadow: 0 8px 20px rgba(155, 89, 182, 0.3);
     position: relative;
     transition: all var(--transition-normal);
     animation: pulse 3s ease-in-out infinite;
+    align-self: flex-start;
 }
 
 .timeline-step:nth-child(odd) .timeline-step-number {
@@ -1570,7 +1574,20 @@ section {
     min-height: 200px;
     display: flex;
     flex-direction: column;
+    flex: 1;
     transition: all var(--transition-normal);
+}
+
+.timeline-step-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+}
+
+.timeline-step-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 }
 
 @media (min-width: 768px) {
@@ -1621,25 +1638,7 @@ section {
 }
 
 .timeline-connector {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 35px;
-}
-
-.timeline-connector::before {
-    content: '';
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-bar);
-    border-radius: 2px;
-    opacity: 0.6;
-}
-
-@media (min-width: 768px) {
-    .timeline-connector {
-        padding-top: 40px;
-    }
+    display: none;
 }
 
 /* ========== RADIOLOGY DIVIDER ========== */
